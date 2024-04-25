@@ -1,0 +1,16 @@
+{
+	"name": "Existing Docker Compose (Extend)",
+	"dockerComposeFile": "../docker-compose.yml",
+	"service": "stash",
+	"workspaceFolder": "/app",
+	"customizations": {
+		"vscode": {
+		  "extensions": [	             
+		  ],
+		  "settings": {
+			"terminal.integrated.shell.linux": "/bin/bash" // Example setting
+		  }
+		}
+	  },
+	  "postCreateCommand": "npm install" // (optional) 
+}

@@ -1,0 +1,25 @@
+{
+    "name": "Node.js Development Environment",
+    "service": "stash",
+    "dockerComposeFile": "docker-compose.yml",    
+    "workspaceFolder": "/app",    
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "dbaeumer.vscode-eslint",
+          "ms-vscode.vscode-typescript",
+          "ms-vscode.nodejs-extensions",
+          "formulahendry.vscode-code-spell-checker", // (optional)
+          "streetsidesoftware.codetime",             // (optional)
+          "akamikes.prettier-vscode"                // (optional)
+        ],
+        "settings": {
+          "terminal.integrated.shell.linux": "/bin/bash" // Example setting
+        }
+      }
+    },
+    "forwardPorts": [3000], 
+    "postCreateCommand": "npm install", 
+    "remoteUser": "node"
+  }
+  
