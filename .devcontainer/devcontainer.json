@@ -5,7 +5,13 @@
 	"workspaceFolder": "/app",
 	"customizations": {
 		"vscode": {
-		  "extensions": [	             
+		  "extensions": [	
+		  "dbaeumer.vscode-eslint",
+          "ms-vscode.vscode-typescript",
+          "ms-vscode.nodejs-extensions",
+          "formulahendry.vscode-code-spell-checker", 
+          "streetsidesoftware.codetime",             
+          "akamikes.prettier-vscode"              
 		  ],
 		  "settings": {
 			"terminal.integrated.shell.linux": "/bin/bash" // Example setting
