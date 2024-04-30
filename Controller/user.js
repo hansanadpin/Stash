@@ -1,17 +1,21 @@
+const { encryptPassword, decryptPassword } = require('../Helpers/password');
 const User = require('../Models/user');
 
 class UserControler {
     static addUser = (req, res) => {
-       const user = User({
-            userName: 'hansanaw',
-            firstName: 'Hansana',
-            lastName: 'Wijethunga',
-            password: 'abc'
-        });
+        const { userName, firstName, lastName, password } = req.body;
 
-        user.save()
-        console.log("Add User");
-        res.send("Hello World");
+        const pass = encryptPassword(password, (hash) => {
+            const user = User({
+                userName: userName,
+                firstName: firstName,
+                lastName: lastName,
+                password: hash
+            });
+            user.save()
+            console.log("Add User");
+            res.send("Add User")
+        });
     }
 }
 
