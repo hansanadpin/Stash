@@ -2,7 +2,8 @@ const { encryptPassword, decryptPassword } = require('../Helpers/password');
 const User = require('../Models/user');
 
 class UserControler {
-    static addUser = async (req, res) => {
+    static addUser = async (req, res) => {   
+        console.log("add user")     
         const { userName, firstName, lastName, password } = req.body;
         const userexist = await this.checkUserNameExist(userName);
 
@@ -32,6 +33,12 @@ class UserControler {
             console.log("user not exixt")
             return false
         }
+    }
+
+    static getusers = async (req,res) => {
+        console.log("hititng get users")
+        const users = await User.find({})
+        res.send({ status: "success", payload: [{ msg: "all users", data: users }] });
     }
 }
 

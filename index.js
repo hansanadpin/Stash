@@ -5,12 +5,13 @@ const userRoute = require('./Routs/user')
 const authRoute = require('./Routs/auth')
 const connectDB = require('./Helpers/db')
 const bodyParser = require('body-parser');
-const jwt = require('jsonwebtoken');
+const authenticateToken = require('./middleware/authenticateToken');
 require('dotenv').config();
 
 app.use(bodyParser.json());
-app.use('/user', userRoute)
 app.use('/', authRoute)
+app.use(authenticateToken)
+app.use('/user', userRoute)
 
 connectDB(() => {
     app.listen(port, () => {
