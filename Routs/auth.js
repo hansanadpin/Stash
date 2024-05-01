@@ -4,7 +4,7 @@ const AuthControler = require('../Controller/auth')
 const UserControler = require('../Controller/user')
 
 
-router.get('/signin',AuthControler.signIn);
+router.post('/signin',AuthControler.signIn);
 router.post('/signup', UserControler.addUser)
 router.post('/refresh',AuthControler.refreshToken)
 

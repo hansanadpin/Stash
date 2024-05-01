@@ -14,7 +14,7 @@ class AuthController {
                     console.log("password match")
                     const token = jwt.sign({ userId: user._id }, process.env.SECRET_KEY, { expiresIn: '15m' });
                     const refreshToken = jwt.sign({ userId: user._id }, process.env.REFRESH_KEY, { expiresIn: '7d' });
-                    res.send({ status: "success", payload: [{ msg: "login success", data: [{ token: token, refreshToken: refreshToken }] }] })
+                    res.send({ status: "success", payload: [{ msg: "login success", data: [{ token: token, refreshToken: refreshToken , tokenExpireSeconds:15*60 , refreshTokenExpireSeconds : 7 * 24 * 60 * 60 }] }] })
                 } else {
                     console.log("invalid password")
                     res.send({ status: "fail", payload: [{ msg: "Incorrect user name/password", data: [] }] })
