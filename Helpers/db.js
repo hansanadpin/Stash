@@ -13,7 +13,7 @@ const connectDB = (callBack) => {
         console.log("Error Connection");
     })
     mongoose.connection.on('error', err => {
-        logError(err);
+        console.log(err);
     });
 }
 
